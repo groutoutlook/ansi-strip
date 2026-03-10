@@ -1,0 +1,25 @@
+[package]
+name = "ansi-strip"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Lightning-fast CLI tool to remove ANSI escape codes from text streams"
+keywords = ["ansi", "cli", "terminal", "colors", "strip"]
+categories = ["command-line-utilities", "text-processing"]
+
+[[bin]]
+name = "ansi-strip"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+regex = "1.10"
+lazy_static = "1.4"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
